@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sajeela!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+        
+        :root {
+            --pink: #ff6b9e;
+            --pink-light: #ff8fab;
+            --pink-lighter: #ffb3c6;
+            --purple: #9d4edd;
+            --purple-light: #c77dff;
+            --purple-lighter: #e0aaff;
+            --gold: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5d9ff, #ffd6e7);
+            color: #4a2c6d;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--pink-lighter), transparent 70%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--purple);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--pink);
+            margin-bottom: 30px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 60px 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Pure CSS Graphics */
+        .balloon {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.8;
+            z-index: -1;
+            animation: float-up 10s linear infinite;
+        }
+        
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        
+        .star {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: var(--gold);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.8;
+            animation: spin 4s linear infinite;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ff0000;
+            transform: rotate(-45deg);
+            opacity: 0.8;
+            animation: heartbeat 1.5s infinite;
+            z-index: -1;
+        }
+        
+        .heart::before, .heart::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+        
+        .heart::after {
+            top: 0;
+            left: 15px;
+        }
+        
+        /* Position Graphics */
+        .balloon-1 {
+            background-color: var(--pink);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .balloon-2 {
+            background-color: var(--purple);
+            top: 15%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+        
+        .balloon-3 {
+            background-color: var(--gold);
+            bottom: 15%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+        
+        .balloon-4 {
+            background-color: var(--pink-light);
+            bottom: 25%;
+            right: 15%;
+            animation-delay: 6s;
+        }
+        
+        .star-1 { top: 20%; left: 20%; animation-delay: 0.5s; }
+        .star-2 { top: 30%; right: 25%; animation-delay: 1.5s; }
+        .star-3 { bottom: 20%; left: 25%; animation-delay: 2.5s; }
+        .star-4 { bottom: 30%; right: 20%; animation-delay: 3.5s; }
+        .star-5 { top: 50%; left: 15%; animation-delay: 1s; }
+        
+        .heart-1 { top: 25%; left: 30%; }
+        .heart-2 { top: 60%; right: 25%; }
+        .heart-3 { bottom: 30%; left: 35%; }
+        
+        /* Memories Section */
+        .memories {
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.2), rgba(221, 160, 221, 0.2));
+            padding: 60px;
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .memories::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--pink-lighter), transparent 60%);
+            opacity: 0.3;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .memories h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--purple);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .memory-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.3);
+        }
+        
+        .memory-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+        }
+        
+        .memory-card h3 {
+            color: var(--purple);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .memory-card p {
+            line-height: 1.6;
+        }
+        
+        /* Wishes Section */
+        .wishes {
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+        }
+        
+        .wishes h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--purple);
+            margin-bottom: 40px;
+        }
+        
+        .wish-box {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wish-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+        }
+        
+        .wish-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--purple);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--pink-light), var(--purple-light));
+            color: white;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .footer-heart {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #ff0000;
+            transform: rotate(-45deg);
+            position: relative;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .footer-heart::before, .footer-heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .footer-heart::before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .footer-heart::after {
+            top: 0;
+            left: 10px;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(5deg); opacity: 0; }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: rotate(-45deg) scale(1); }
+            25% { transform: rotate(-45deg) scale(1.1); }
+            50% { transform: rotate(-45deg) scale(1); }
+            75% { transform: rotate(-45deg) scale(1.1); }
+            100% { transform: rotate(-45deg) scale(1); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .memory-card {
+                width: 100%;
+            }
+            
+            .balloon, .star, .heart {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-bg"></div>
+            <h1>Happy Birthday Sajeela!</h1>
+            <p class="subtitle">Celebrating the most wonderful mother in the world!</p>
+            
+            <!-- Balloons -->
+            <div class="balloon balloon-1"></div>
+            <div class="balloon balloon-2"></div>
+            <div class="balloon balloon-3"></div>
+            <div class="balloon balloon-4"></div>
+            
+            <!-- Stars -->
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+            
+            <!-- Hearts -->
+            <div class="heart heart-1"></div>
+            <div class="heart heart-2"></div>
+            <div class="heart heart-3"></div>
+        </header>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <h2>To My Dearest Mother</h2>
+                <p>Today we celebrate you - your love, your strength, and your beautiful heart. You are the light of our lives and the glue that holds our family together.</p>
+                <p>May this year bring you as much happiness as you've brought to all of us throughout the years.</p>
+                
+                <!-- Additional floating graphics -->
+                <div class="star" style="top: -20px; left: -30px; animation-delay: 0.5s;"></div>
+                <div class="star" style="top: -10px; right: -20px; animation-delay: 1s;"></div>
+                <div class="heart" style="bottom: -15px; left: 30%; animation-delay: 1.5s;"></div>
+            </div>
+        </section>
+        
+        <section class="memories">
+            <h2>Why You're Special</h2>
+            <div class="memory-cards">
+                <div class="memory-card">
+                    <h3>Unconditional Love</h3>
+                    <p>Your love knows no bounds. Through every challenge and every joy, you've been our constant source of comfort and support.</p>
+                    <div class="star" style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px;"></div>
+                </div>
+                <div class="memory-card">
+                    <h3>Endless Sacrifices</h3>
+                    <p>You've always put our needs before your own, teaching us the true meaning of selflessness and care.</p>
+                    <div class="heart" style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px;"></div>
+                </div>
+                <div class="memory-card">
+                    <h3>Beautiful Soul</h3>
+                    <p>Your kindness radiates to everyone around you. You make the world a better place just by being in it.</p>
+                    <div class="star" style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; background-color: var(--purple);"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="wishes">
+            <h2>My Birthday Wish For You</h2>
+            <div class="wish-box">
+                <p class="wish-text">
+                    Dear Mom,<br><br>
+                    On your special day, I wish you endless joy, good health, and all the happiness you deserve. May your year be filled with love, laughter, and beautiful moments that become cherished memories. Thank you for being my guiding light, my safe haven, and my greatest supporter. The world is brighter because you're in it.<br><br>
+                    With all my love,
+                </p>
+                <p class="signature">Your Child</p>
+                
+                <!-- Floating graphics around the wish box -->
+                <div class="star" style="top: -15px; left: -15px; width: 20px; height: 20px;"></div>
+                <div class="star" style="bottom: -15px; right: -15px; width: 20px; height: 20px;"></div>
+                <div class="heart" style="top: -10px; right: -10px; width: 20px; height: 20px;"></div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Made with <span class="footer-heart"></span> for Sajeela's Birthday</p>
+        <p>© 2023 | Happy Birthday Mom!</p>
+        
+        <!-- Floating footer graphics -->
+        <div class="star" style="bottom: 10px; left: 20%; background-color: white; width: 15px; height: 15px;"></div>
+        <div class="star" style="bottom: 15px; right: 20%; background-color: white; width: 15px; height: 15px;"></div>
+    </footer>
+</body>
+</html>
